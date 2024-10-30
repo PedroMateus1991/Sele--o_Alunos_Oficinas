@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <title>Seleção de Oficina</title>
+</head>
+<body>
+    <div class="container">
+        <form name="submit-to-google-sheet">
+            <h3>Nome Completo e Turma</h3>
+            <input name="nome" type="text" placeholder="Nome Completo" required >
+                        <!-- <input type="turma" name="turma" placeholder="Turma"> -->
+            <select name="turma" type="text" placeholder="turma" required >
+                <option value="" disabled selected>Turma</option>
+                <option value="8A">8A</option>
+                <option value="9A">9A</option>
+                <option value="9B">9B</option>
+                <option value="9C">9C</option>
+                <option value="1A">1A</option>
+                <option value="1B">1B</option>
+                <option value="2A">2A</option>
+                <option value="2B">2B</option>
+                <option value="3A">3A</option>
+                </select>
+                       
+            <h3>1ª Oficina - 9h às 10h</h3>
+            <select  name = "curso1" id="curso1" required>
+                <option value="" disabled selected>Primeira Opção</option>
+                <option value="Oficina de Gravação e Edição de Vídeos">Oficina de Gravação e Edição de Vídeos</option>
+                <option value="Oficina de Impressora 3D">Oficina de Impressora 3D</option>
+                <option value="Oficina de Games">Oficina de Games</option>
+                <option value="Oficina de Pilotagem de Drone">Oficina de Pilotagem de Drone</option>
+            </select>
+            <h3>2ª Oficina - 10:20h às 11:20h</h3>
+            <select name = "curso2" id="curso2" required>
+            <option value="" disabled selected>Segunda Opção</option>
+            <option value="Oficina de Gravação e Edição de Vídeos">Oficina de Gravação e Edição de Vídeos</option>
+            <option value="Oficina de Impressora 3D">Oficina de Impressora 3D</option>
+            <option value="Oficina de Games">Oficina de Games</option>
+            <option value="Oficina de Pilotagem de Drone">Oficina de Pilotagem de Drone</option>
+        </select>
+            <button type="submit" name="myButton" required >Enviar</button>
+            <span id = "msg"></span>
+        </form>
+    </div>
+    
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxjp2MaUR-8wfEDEDbF7IodaezE-Rb6fgOHuBKaiNiG49VBSU_Wd6gOOAJAv3B0MgdJdA/exec'
+            const form = document.forms['submit-to-google-sheet']
+
+            form.addEventListener('submit', e =>{
+                e.preventDefault()
+                fetch(scriptURL,{method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    msg.innerHTML = "Obrigado Registro Efetuado com Sucesso!"
+                    setTimeout(function(){
+                        msg.innerHTML = ""
+                    }, 10000)
+                    form.reset()
+                })
+                .catch(error => console.error('Erro!', error.message))
+            })
+        </script>
+
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: #440072;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 3vw 3vw;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 1em;
+}
+
+form h3 {
+    color: rgb(95, 35, 95);
+    font-weight: 600;
+    font-size: 1.5em;
+    margin-bottom: 12px;
+    text-align: center;
+    font-family: 'Nunito',sans-serif;
+}
+
+form input, form textarea, form select {
+    border: 0;
+    margin: 0.2em 0;
+    padding: 10px;
+    outline: none;
+    background: #e2e2e2;
+    font-size: 12px;
+    border-radius: 1em;
+    transition: all 0.5s;
+
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    background: #eeeeee;
+}
+
+form textarea{
+    resize: none;
+}
+
+form button {
+    padding: 0.8em;
+    background: #a10215;
+    color: #fff;
+    font-size: 1.2em;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    width: 10em;
+    margin: 0.6em auto 0;
+    border-radius: 2em;
+}
+
+span{
+    color: #40ff;
+    align-items: center;
+    text-align: center;
+    margin-top: 1.5em;
+
+}
